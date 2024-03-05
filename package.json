@@ -10,7 +10,7 @@
   "scripts": {
     "start": "tsc-watch --onSuccess \"node dist index.js\"",
     "test": "mocha",
-    "coverage": "c8 npm test && c8 report --reporter=text-lcov",
+    "coverage": "c8 npm test && c8 report --reporter=lcov",
     "doc": "typedoc"
   },
   "devDependencies": {
