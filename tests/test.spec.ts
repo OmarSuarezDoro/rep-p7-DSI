@@ -1,9 +1,9 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { Complex } from '../src/modificacion-1/Complex.js';
-import { ArithmeticableCollection } from '../src/modificacion-1/ArithmeticableCollection.js';
-import { Rational } from '../src/modificacion-1/Rational.js';
-import { AdapterRationalComplex } from '../src/modificacion-1/AdapterRationalComplex.js';
+import { Complex } from '../src/Complex.js';
+import { ArithmeticableCollection } from '../src/ArithmeticableCollection.js';
+import { Rational } from '../src/Rational.js';
+import { AdapterRationalComplex } from '../src/AdapterRationalComplex.js';
 
 describe('test for class Complex', () => {
   it("Constructor Test", () => {
@@ -166,12 +166,149 @@ describe('Test for the class Adapter', () => {
 
   });
 
-  it('It must create operate with add method', () => {
+  it('It must operate with add method 1', () => {
     let r : Rational = new Rational(1, 2);
     let c : Complex = new Complex(1, 2);
     let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
-    expect(myAdapter.realPart).to.be.eql(0.5 + 1);
-    expect(myAdapter.imaginaryPart).to.be.eql(2);
+    let result = myAdapter.add(c);
+    expect(result.realPart).to.be.eql(0.5 + 1);
+    expect(result.imaginaryPart).to.be.eql(2);
 
   });
-})
+
+  it('It must operate with add method 2', () => {
+    let r : Rational = new Rational(2, 2);
+    let c : Complex = new Complex(3, 4);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.add(c);
+    expect(result.realPart).to.be.eql(1 + 3);
+    expect(result.imaginaryPart).to.be.eql(4);
+  });
+  
+  it('It must operate with add method 3', () => {
+    let r : Rational = new Rational(3, 4);
+    let c : Complex = new Complex(4, 5);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.add(c);
+    expect(result.realPart).to.be.eql(0.75 + 4);
+    expect(result.imaginaryPart).to.be.eql(5);
+  });
+  
+  it('It must operate with add method 4', () => {
+    let r : Rational = new Rational(4, 5);
+    let c : Complex = new Complex(5, 6);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.add(c);
+    expect(result.realPart).to.be.eql(0.8 + 5);
+    expect(result.imaginaryPart).to.be.eql(6);
+  });
+
+  it('It must operate with sub method 1', () => {
+    let r : Rational = new Rational(1, 2);
+    let c : Complex = new Complex(1, 2);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.substract(c);
+    expect(result.realPart).to.be.eql(-0.5);
+    expect(result.imaginaryPart).to.be.eql(-2);
+  });
+
+  it('It must operate with sub method 2', () => {
+    let r : Rational = new Rational(3, 4);
+    let c : Complex = new Complex(2, -5);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.substract(c);
+    expect(result.realPart).to.be.eql(-1.25);
+    expect(result.imaginaryPart).to.be.eql(+5);
+  });
+
+  it('It must operate with sub method 3', () => {
+    let r : Rational = new Rational(3, 1);
+    let c : Complex = new Complex(3, 0);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.substract(c);
+    expect(result.realPart).to.be.eql(0);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with sub method 4', () => {
+    let r : Rational = new Rational(-2, -1);
+    let c : Complex = new Complex(2, 0);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.substract(c);
+    expect(result.realPart).to.be.eql(0);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with multiply method 1', () => {
+    let r : Rational = new Rational(-2, -1);
+    let c : Complex = new Complex(2, 0);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.multiply(c);
+    expect(result.realPart).to.be.eql(4);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with multiply method 2', () => {
+    let r : Rational = new Rational(3, 1);
+    let c : Complex = new Complex(2, 3);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.multiply(c);
+    expect(result.realPart).to.be.eql(6);
+    expect(result.imaginaryPart).to.be.eql(9);
+  });
+
+  it('It must operate with multiply method 3', () => {
+    let r : Rational = new Rational(999, 1);
+    let c : Complex = new Complex(999, 6);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.multiply(c);
+    expect(result.realPart).to.be.eql(998001);
+    expect(result.imaginaryPart).to.be.eql(5994);
+  });
+
+  it('It must operate with multiply method 4', () => {
+    let r : Rational = new Rational(-22, 1);
+    let c : Complex = new Complex(5, 10);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.multiply(c);
+    expect(result.realPart).to.be.eql(-110);
+    expect(result.imaginaryPart).to.be.eql(-220);
+  });
+
+  it('It must operate with divide method 1', () => {
+    let r : Rational = new Rational(-22, 1);
+    let c : Complex = new Complex(5, 10);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.divide(c);
+    expect(result.realPart).to.be.eql(-0.88);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with divide method 2', () => {
+    let r : Rational = new Rational(9999, 1);
+    let c : Complex = new Complex(1, 1);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.divide(c);
+    expect(result.realPart).to.be.eql(4999.5);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with divide method 3', () => {
+    let r : Rational = new Rational(0, 1);
+    let c : Complex = new Complex(1, 38);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.divide(c);
+    expect(result.realPart).to.be.eql(0);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with divide method 4', () => {
+    let r : Rational = new Rational(27, 3);
+    let c : Complex = new Complex(2, -2);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = myAdapter.divide(c);
+    expect(result.realPart).to.be.eql(2.25);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+});

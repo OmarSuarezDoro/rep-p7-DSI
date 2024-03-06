@@ -10,7 +10,7 @@ import { Complex } from "./Complex.js";
 import { Rational } from "./Rational.js";
 
 /**
- * This class is an Adapter which.
+ * This class is an Adapter which transform a Rational into a Complex number
  */
 export class AdapterRationalComplex extends Complex {
   constructor(b : Rational) {
