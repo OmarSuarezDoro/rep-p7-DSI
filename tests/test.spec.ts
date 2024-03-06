@@ -176,6 +176,15 @@ describe('Test for the class Adapter', () => {
 
   });
 
+  it('It must operate with add method 1 Inverted', () => {
+    let r : Rational = new Rational(1, 2);
+    let c : Complex = new Complex(1, 2);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = c.add(myAdapter);
+    expect(result.realPart).to.be.eql(0.5 + 1);
+    expect(result.imaginaryPart).to.be.eql(2);
+  });
+
   it('It must operate with add method 2', () => {
     let r : Rational = new Rational(2, 2);
     let c : Complex = new Complex(3, 4);
@@ -212,6 +221,15 @@ describe('Test for the class Adapter', () => {
     expect(result.imaginaryPart).to.be.eql(-2);
   });
 
+  it('It must operate with sub method 1 inverted', () => {
+    let r : Rational = new Rational(1, 2);
+    let c : Complex = new Complex(1, 2);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = c.substract(myAdapter);
+    expect(result.realPart).to.be.eql(0.5);
+    expect(result.imaginaryPart).to.be.eql(2);
+  });
+
   it('It must operate with sub method 2', () => {
     let r : Rational = new Rational(3, 4);
     let c : Complex = new Complex(2, -5);
@@ -236,6 +254,15 @@ describe('Test for the class Adapter', () => {
     let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
     let result = myAdapter.substract(c);
     expect(result.realPart).to.be.eql(0);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with multiply method 1 inverted', () => {
+    let r : Rational = new Rational(-2, -1);
+    let c : Complex = new Complex(2, 0);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = c.multiply(myAdapter);
+    expect(result.realPart).to.be.eql(4);
     expect(result.imaginaryPart).to.be.eql(0);
   });
 
@@ -281,6 +308,15 @@ describe('Test for the class Adapter', () => {
     let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
     let result = myAdapter.divide(c);
     expect(result.realPart).to.be.eql(-0.88);
+    expect(result.imaginaryPart).to.be.eql(0);
+  });
+
+  it('It must operate with divide method 1 Inverted', () => {
+    let r : Rational = new Rational(-22, 1);
+    let c : Complex = new Complex(5, 10);
+    let myAdapter : AdapterRationalComplex = new AdapterRationalComplex(r);
+    let result = c.divide(myAdapter);
+    expect(result.realPart).to.be.eql(-0.22727272727272727);
     expect(result.imaginaryPart).to.be.eql(0);
   });
 
